@@ -1,0 +1,3 @@
+* Abschlussbericht
+- Ordner ~report~ enthält das Projekt für den Bericht
+- In den anderen Ordnern befinden sich Konfigurationsdateien, Beispiele und Anleitungen
