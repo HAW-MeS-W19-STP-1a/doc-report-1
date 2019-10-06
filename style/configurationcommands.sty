@@ -134,6 +134,7 @@ Aeronautical Engineering}\newcommand{\Istatement}{\input{../style/statement_fuf}
   \ifthenelse{\equal{#1}{MAI}}{\thesisKind{Master}\department{I}\newcommand{\IstudyCourseName}{Master of Science Informatik}}{}
   \ifthenelse{\equal{#1}{MIK}}{\thesisKind{Master}\department{IE}\newcommand{\IstudyCourseName}{Master of Science Informations- und Kommunikationstechnik}}{}
   \ifthenelse{\equal{#1}{MA}}{\thesisKind{Master}\department{IE}\newcommand{\IstudyCourseName}{Master of Science Automatisierung}}{}
+  \ifthenelse{\equal{#1}{MES}}{\thesisKind{Master}\department{IE}\newcommand{\IstudyCourseName}{Master of Science Mikroelektronische Systeme}}{}
 }
 
 \newcommand{\keywordsDE}[1]{\newcommand{\IkeyWordsDE}{#1}}
@@ -159,7 +160,7 @@ Aeronautical Engineering}\newcommand{\Istatement}{\input{../style/statement_fuf}
 
 \newcommand{\seminarKind}[1]
 {
-  \ifthenelse{\equal{#1}{S}}{\newcommand{\IthesisKind}{Seminararbeit}\newcommand{\IthesisKindDE}{Seminararbeit}\newcommand{\IthesisExaminationDE}{Bachelorstudiengang}\newcommand{\ICDthesisKind}{SEMINARARBEIT}}{}
+  \ifthenelse{\equal{#1}{S}}{\newcommand{\IthesisKind}{Projekt-Bericht}\newcommand{\IthesisKindDE}{Projekt-Bericht}\newcommand{\IthesisExaminationDE}{Bachelorstudiengang}\newcommand{\ICDthesisKind}{SEMINARARBEIT}}{}
   \ifthenelse{\equal{#1}{GSem}}{\newcommand{\IthesisKind}{Grundseminararbeit}\newcommand{\IthesisKindDE}{Grundseminararbeit}\newcommand{\IthesisExaminationDE}{Masterstudiengang}\newcommand{\ICDthesisKind}{GRUNDSEMINAR}}{}
   \ifthenelse{\equal{#1}{HSem}}{\newcommand{\IthesisKind}{Hauptseminararbeit}\newcommand{\IthesisKindDE}{Hauptseminararbeit}\newcommand{\IthesisExaminationDE}{Masterstudiengang}\newcommand{\IthesisKind}{HAUPTSEMINAR}}{}
   \ifthenelse{\equal{#1}{Pro}}{\newcommand{\IthesisKind}{Proseminararbeit}\newcommand{\IthesisKindDE}{Proseminararbeit}\newcommand{\IthesisExaminationDE}{Bachelorstudiengang}\newcommand{\IthesisKind}{PROSEMINARARBEIT}}{}

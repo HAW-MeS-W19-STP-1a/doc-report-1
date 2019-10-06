@@ -3,4 +3,3 @@
 \contentsline {subsection}{\numberline {1.1}Lorem Ipsum}{1}{subsection.1.1}
 \contentsline {section}{\numberline {2}Blind Text}{3}{section.2}
 \contentsline {section}{\nonumberline Literatur}{5}{section*.4}
-\contentsline {section}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{6}{section*.4}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.11.30)  6 OCT 2019 10:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.11.30)  6 OCT 2019 10:47
 entering extended mode
 **./termpaper.tex
 (termpaper.tex
@@ -1581,7 +1581,7 @@ LaTeX Font Info:    Try loading font information for T1+phv on input line 9.
 ("C:\Users\Dameji\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\t1phv.fd"
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
-<../style/HAW_Marke_schwarz.pdf, id=49, 387.4475pt x 142.5325pt>
+<../style/HAW_Marke_schwarz.pdf, id=46, 387.4475pt x 142.5325pt>
 File: ../style/HAW_Marke_schwarz.pdf Graphic file (type pdf)
 <use ../style/HAW_Marke_schwarz.pdf>
 Package pdftex.def Info: ../style/HAW_Marke_schwarz.pdf  used on input line 27.
@@ -1647,10 +1647,10 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 14.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 14.
-<./chapters/question.png, id=86, 231.264pt x 192.2382pt>
-File: ./chapters/question.png Graphic file (type png)
-<use ./chapters/question.png>
-Package pdftex.def Info: ./chapters/question.png  used on input line 17.
+<./img/question.png, id=82, 231.264pt x 192.2382pt>
+File: ./img/question.png Graphic file (type png)
+<use ./img/question.png>
+Package pdftex.def Info: ./img/question.png  used on input line 17.
 (pdftex.def)             Requested size: 209.12683pt x 173.84583pt.
 )
 Package babel Info: Redefining ngerman shorthand "|
@@ -1661,7 +1661,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 51.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 51.
- [3 <./chapters/question.png>]
+ [3 <./img/question.png>]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 51.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1680,74 +1680,49 @@ LaTeX Font Info:    Try loading font information for T1+pcr on input line 15.
 
 ("C:\Users\Dameji\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)) (../style/statement_i.tex
+))
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1.
+(babel)             in language  on input line 60.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1.
+(babel)             in language  on input line 60.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1.
+(babel)             in language  on input line 60.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1.
+(babel)             in language  on input line 60.
  [5]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 3.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 3.
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 4.
-
-("C:\Users\Dameji\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1cmss.fd"
-File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 34.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 34.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 34.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 34.
-
-[6
-
-])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 60.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 60.
  (termpaper.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 60.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 60.
 Package rerunfilecheck Info: File `termpaper.out' has not changed.
-(rerunfilecheck)             Checksum: AF8C1D398DA869BB12742D6682E78FB5;269.
+(rerunfilecheck)             Checksum: C71FC122EA7C7065C827E29622AAC54E;199.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 60.
  ) 
 Here is how much of TeX's memory you used:
- 41180 strings out of 492973
- 833947 string characters out of 3126248
- 1265648 words of memory out of 3000000
- 44403 multiletter control sequences out of 15000+200000
- 563619 words of font info for 72 fonts, out of 3000000 for 9000
+ 41147 strings out of 492973
+ 833000 string characters out of 3126248
+ 1265766 words of memory out of 3000000
+ 44381 multiletter control sequences out of 15000+200000
+ 560622 words of font info for 68 fonts, out of 3000000 for 9000
  1143 hyphenation exceptions out of 8191
  82i,19n,90p,9126b,800s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Dameji\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
-\ecsx1095.pk> <C:\Users\Dameji\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
-n\ec\dpi600\ecti0900.pk> <C:\Users\Dameji\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
-our\jknappen\ec\dpi600\ecrm0900.pk> <C:\Users\Dameji\AppData\Local\MiKTeX\2.9\f
-onts\pk\ljfour\jknappen\ec\dpi600\ecsx1200.pk>{C:/Users/Dameji/AppData/Local/Pr
-ograms/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc} <C:\Users\Dameji\AppData\Local\M
-iKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1095.pk> <C:\Users\Dameji\AppD
-ata\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1095.pk> <C:\Users\
-Dameji\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk>
- <C:\Users\Dameji\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\e
-crm1095.pk> <C:\Users\Dameji\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
-ec\dpi600\ecbx1095.pk> <C:\Users\Dameji\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
-r\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\Dameji\AppData\Local\MiKTeX\2.9\fon
-ts\pk\ljfour\jknappen\ec\dpi600\ecsl1095.pk><C:/Users/Dameji/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Dameji/AppData/Loc
-al/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/Dameji/App
-Data/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on termpaper.pdf (8 pages, 180139 bytes).
+{C:/Users/Dameji/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.en
+c} <C:\Users\Dameji\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
+\ecti1095.pk> <C:\Users\Dameji\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
+n\ec\dpi600\eccc1095.pk> <C:\Users\Dameji\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
+our\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\Dameji\AppData\Local\MiKTeX\2.9\f
+onts\pk\ljfour\jknappen\ec\dpi600\ecrm1095.pk> <C:\Users\Dameji\AppData\Local\M
+iKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\Dameji\AppD
+ata\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\
+Dameji\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsl1095.pk>
+<C:/Users/Dameji/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr
+8a.pfb><C:/Users/Dameji/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helve
+tic/uhvr8a.pfb><C:/Users/Dameji/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/u
+rw/helvetic/uhvro8a.pfb>
+Output written on termpaper.pdf (7 pages, 134733 bytes).
 PDF statistics:
- 491 PDF objects out of 1000 (max. 8388607)
- 17 named destinations out of 1000 (max. 500000)
- 159 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 340 PDF objects out of 1000 (max. 8388607)
+ 16 named destinations out of 1000 (max. 500000)
+ 151 words of extra memory for PDF output out of 10000 (max. 10000000)
 
