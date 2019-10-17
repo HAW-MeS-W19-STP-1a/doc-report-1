@@ -8,6 +8,7 @@
     "configuration/configuration"
     "chapters/paperabstract"
     "chapters/first_chapter"
+    "chapters/solartracking"
     "scrartcl"
     "scrartcl10"
     "lipsum"

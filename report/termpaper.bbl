@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{2}
 % this bibliography was produced with the style dinat.bst v2.5
 \makeatletter
 \newcommand{\dinatlabel}[1]%
@@ -14,5 +14,15 @@
 \newblock Random House Incorporated, 1995. --
 \newblock URL \url{https://books.google.de/books?id=bMWkPQAACAAJ}. --
 \newblock ISBN 9780345397041
+
+\bibitem[J. und Y.(2008)]{Rizek2008}
+\dinatlabel{J. und Y. 2008} \textsc{J.}, Rizek~; \textsc{Y.}, Chaiko:
+\newblock Solar Tracking System: More Efficient Use of Solar Panels.
+\newblock In: \emph{World Academy of Science, Engineering and Technology}
+\newblock 41 (2008). --
+\newblock URL
+  \url{http://www.mugla.edu.tr/data/03060010/belgeler/solar\%20tracking.pdf}.
+  --
+\newblock Zugriff: 17.10.2019
 
 \end{thebibliography}
