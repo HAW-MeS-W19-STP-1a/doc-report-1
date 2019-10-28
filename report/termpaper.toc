@@ -1,11 +1,5 @@
 \babel@toc {ngerman}{}
-\contentsline {section}{\numberline {1}Einleitung}{1}{section.1}% 
-\contentsline {subsection}{\numberline {1.1}Lorem Ipsum}{1}{subsection.1.1}% 
-\contentsline {section}{\numberline {2}Blind Text}{3}{section.2}% 
-\contentsline {section}{\numberline {3}Sensoren}{5}{section.3}% 
-\contentsline {subsection}{\numberline {3.1}BME280}{5}{subsection.3.1}% 
-\contentsline {subsection}{\numberline {3.2}HMC6352}{8}{subsection.3.2}% 
-\contentsline {subsection}{\numberline {3.3}LIS3DH}{8}{subsection.3.3}% 
-\contentsline {subsection}{\numberline {3.4}ACS712}{8}{subsection.3.4}% 
-\contentsline {subsection}{\numberline {3.5}SEN-08942}{8}{subsection.3.5}% 
-\contentsline {section}{\nonumberline Literatur}{8}{section*.9}% 
+\contentsline {section}{\numberline {1}Einleitung}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}Lorem Ipsum}{1}{subsection.1.1}
+\contentsline {section}{\numberline {2}Blind Text}{3}{section.2}
+\contentsline {section}{\nonumberline Literatur}{5}{section*.4}
