@@ -94,11 +94,21 @@ Im Zuge der Überlegungen bezüglich möglicher Energiesparmaßnahmen wurden sow
   \caption{Spannngsabschaltung Bluetooth-Modul}\label{fig.spgsabschaltung}
 \end{figure}
 
-Bei einem Einschaltsignal über BT\_EN vom Mikrocontroller schaltet der n-Kanal-Mosfet V101 durch; der Spannungsteiler aus $R_{105}$ und $R_{106}$ ist aktiv. 
+Bei einem Einschaltsignal über BT\_EN vom Mikrocontroller schaltet der n-Kanal-Mosfet V101 durch; der Spannungsteiler aus $R_{105}$ und $R_{106}$ ist aktiv. Es sei $R_{105}=100\,\si{\kilo\ohm}$ und $R_{106}=1\,\si{\kilo\ohm}$. Daraus ergibt sich für die Gate-Source-Spannung des p-Kanal-Transistors $U_{GS}$:
+
+\begin{minipage}{\textwidth}
+\begin{equation}\label{eq:UGS}
+{U_{GS}}{=} 5\,\si{\volt}-5\,\si{\volt}\cdot \frac{1\,\si{\kilo\ohm}}{101\,\si{\kilo\ohm}}{=}4,95\,V
+\end{equation}
+\end{minipage}
+
+Damit schaltet der p-Kanal-Transistor mit $U_{GS,th}=1,6\,V$ sicher durch.
+Die Schaltung für das GPS-Modul wird analog dazu entworfen.
 %5vgps, 5vbt, Mosfets, Spannungsteiler
 
 \subsection{Messung Strom/Spannung}\label{subsec.MessungStromSpannung}
-%Sensoren ACS, Spannungsteiler Ladespannungsmessung
+\subsubsection{Strommessung}
+\subsubsection{Ladezustand der Batterie}
 
 \subsection{Beschaltung Sensoren}\label{subsec.BeschaltungSensoren}
 %Olis Dokument zusammenfassen
