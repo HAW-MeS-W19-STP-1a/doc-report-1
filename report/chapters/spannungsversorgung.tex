@@ -41,16 +41,16 @@ Im folgenden soll hauptsächlich auf die Dimensionierung des Spannungsteilers zu
 Es kann somit der folgende Spannungsteiler aufgestellt werden:
 
 \begin{minipage}{\textwidth}
-\begin{equation}\label{eq:Spannungsteiler}
-\frac {U_{FB}}{U_a}{=}  \frac{R_2}{R_1+R_2}
+\begin{equation}\label{eq:Spannungsteiler3v3}
+\frac {U_{FB}}{U_a}{=}  \frac{R_{101}}{R_{101}+R_{100}}
 \end{equation}
 \end{minipage}
 
-Mit $U_{FB}=0,6\,\si{\volt}$, $U_a=3,3\,\si{\volt}$ und $R_1=150\,\si{\kilo\ohm}$ ergibt sich:
+Mit $U_{FB}=0,6\,\si{\volt}$, $U_a=3,3\,\si{\volt}$ und $R_{101}=150\,\si{\kilo\ohm}$ ergibt sich:
 
 \begin{minipage}{\textwidth}
-\begin{equation}\label{eq:Spannungsteiler}
-\frac {0,6\,\si{\volt}}{3,3\,\si{\volt}}{=}  \frac{150\,\si{\kilo\ohm}}{150\,\si{\kilo\ohm}+R_2} \Rightarrow R_2=680\,\si{\kilo\ohm}
+\begin{equation}\label{eq:Spannungsteiler3v3b}
+\frac {0,6\,\si{\volt}}{3,3\,\si{\volt}}{=}  \frac{150\,\si{\kilo\ohm}}{150\,\si{\kilo\ohm}+R_2} \Rightarrow R_{100}=680\,\si{\kilo\ohm}
 \end{equation}
 \end{minipage}
 
@@ -59,6 +59,23 @@ Der Spannungsteiler wurde hochohmig dimensioniert, um den Stromfluss möglichst 
 
 %Spannungsteiler Formel, was wird alles von 3V3 versorgt 
 \subsubsection{5V}\label{subsubsec.5v}
+Die Bestimmung des Spannungsteilers für die Erzeugung von 5V erfolgt analog zu Abschnitt \ref{subsubsec.3v3}. Es lässt sich folgender Spannungsteiler aufstellen:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{./img/spannungsteiler_5v.png}
+  \caption{Spannungsteiler am FB-Pins des 5V Reglers}\label{fig.spgsteiler5v}
+\end{figure}
+
+Dieser wird beschrieben durch:
+
+\begin{minipage}{\textwidth}
+\begin{equation}\label{eq:Spannungsteiler5v}
+\frac {U_{FB}}{U_a}{=}  \frac{R_{104}}{R_{104}+R_{103}+R_{102}}
+\end{equation}
+\end{minipage}
+
+
 %Kurzfassung von vorherigem Teil, Spannungsteiler Formel
 
 
