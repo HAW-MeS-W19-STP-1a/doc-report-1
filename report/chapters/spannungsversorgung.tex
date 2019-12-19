@@ -19,24 +19,57 @@ Aus den mechanischen Anforderungen, dass Mikrocontroller, Platine und Sensoren m
 \subsection{Erzeugung benötigter Spannungen}\label{subsec.Spannungserzeugung}
 Wie in \ref{subsec.anforderungen} beschrieben, werden sowohl 3,3V als auch 5V-Pegel für die Wetterstation benötigt. Angestrebt ist, dass die verwendeten Buck-Spannungsregler eine möglichst geringe Ruhestromaufnahme und einen guten Wirkungsgrad haben. Die Wahr fiel hierbei auf den \textit{LTC3621}. Dieser hat einen Eingangsspannungsbereich von 2,7\,V bis 17\,V und eine Ausgangsspannung, die sich über einen Spannungsteiler am Feedback-Pin zwischen 0,6\,V und der Eingangsspannung einstellen lässt. Der Ruhestrom beträgt laut Datenblatt 3,5\,$\mu$A ~\cite{ltc3621}. Der Regler kann einen maximalen Ausgangsstrom von 1\,A liefern. Da bei der Wahl des Spannungsreglers noch keine Werte über die von der Peripherie benötigte Leistung vorlag, ist dieser Wert eventuell etwas überdimensioniert.
 
-Die Beschaltung des Reglers entspricht den Empfehlungen des Datenblatts und wird im folgenden Abschnitt dargestellt.
+Die Beschaltung des Reglers entspricht den Empfehlungen des Datenblatts, wie sie in Abbildung \ref{fig.ltc3621} dargestellt ist:
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{./img/ltc3621.png}
+  \caption{Darstellung des LTC3621 mit beispielhafter Beschaltung gemäß Datenblatt~\cite{ltc3621}}\label{fig.ltc3621}
+\end{figure}
+
+Zusätzlich verfügt dieser Regler über die Option, über einen Befehl des Mikrocontrollers manuell ein- bzw. ausgeschaltet zu werden, was weiterhin günstig für den Gesamtstromverbrauch ist.
 
 \subsubsection{3V3}\label{subsubsec.3v3}
-Im folgenden soll hauptsächlich auf die Dimensionierung des Spannungsteilers zur Erzeugung von 3,3\,V eingegangen werden.
+Im folgenden soll hauptsächlich auf die Dimensionierung des Spannungsteilers zur Erzeugung von 3,3\,V eingegangen werden. Der Regler hat dabei eine interne Referenzspannung am FB-Pin, die 0,6\,V beträgt, über die die Ausgangsspannung geregelt wird. 
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{./img/spannungsteiler_3v3.png}
+  \caption{Spannungsteiler am FB-Pins des 3V3 Reglers}\label{fig.spgsteiler3v3}
+\end{figure}
+
+Es kann somit der folgende Spannungsteiler aufgestellt werden:
+
+\begin{minipage}{\textwidth}
+\begin{equation}\label{eq:Spannungsteiler}
+\frac {U_{FB}}{U_a}{=}  \frac{R_2}{R_1+R_2}
+\end{equation}
+\end{minipage}
+
+Mit $U_{FB}=0,6\,\si{\volt}$, $U_a=3,3\,\si{\volt}$ und $R_1=150\,\si{\kilo\ohm}$ ergibt sich:
+
+\begin{minipage}{\textwidth}
+\begin{equation}\label{eq:Spannungsteiler}
+\frac {0,6\,\si{\volt}}{3,3\,\si{\volt}}{=}  \frac{150\,\si{\kilo\ohm}}{150\,\si{\kilo\ohm}+R_2} \Rightarrow R_2=680\,\si{\kilo\ohm}
+\end{equation}
+\end{minipage}
+
+Der Spannungsteiler wurde hochohmig dimensioniert, um den Stromfluss möglichst klein zu halten.
+
+
+%Spannungsteiler Formel, was wird alles von 3V3 versorgt 
 \subsubsection{5V}\label{subsubsec.5v}
+%Kurzfassung von vorherigem Teil, Spannungsteiler Formel
+
 
 \subsection{Spannungsabschaltung}\label{subsec.Spannungsabschaltung}
+%5vgps, 5vbt, Mosfets, Spannungsteiler
 
 \subsection{Messung Strom/Spannung}\label{subsec.MessungStromSpannung}
+%Sensoren ACS, Spannungsteiler Ladespannungsmessung
 
 \subsection{Beschaltung Sensoren}\label{subsec.BeschaltungSensoren}
+%Olis Dokument zusammenfassen
 
 
 
-%\begin{figure}[hbtp]
-%  \centering
-%  \includegraphics[width=\textwidth]{./img/Representation-of-azimuth-and-zenith-angles.png}
-%  \caption{Beschreibung der Sonnenposition durch Zenith und Azimut~\cite{Nou2016}}\label{fig:zen_azi}
-%\end{figure}
