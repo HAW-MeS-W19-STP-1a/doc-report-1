@@ -50,7 +50,7 @@ Mit $U_{FB}=0,6\,\si{\volt}$, $U_a=3,3\,\si{\volt}$ und $R_{101}=150\,\si{\kilo\
 
 \begin{minipage}{\textwidth}
 \begin{equation}\label{eq:Spannungsteiler3v3b}
-\frac {0,6\,\si{\volt}}{3,3\,\si{\volt}}{=}  \frac{150\,\si{\kilo\ohm}}{150\,\si{\kilo\ohm}+R_2} \Rightarrow R_{100}=680\,\si{\kilo\ohm}
+\frac {0,6\,\si{\volt}}{3,3\,\si{\volt}}{=}  \frac{150\,\si{\kilo\ohm}}{150\,\si{\kilo\ohm}+R_{100}} \Rightarrow R_{100}=680\,\si{\kilo\ohm}
 \end{equation}
 \end{minipage}
 
@@ -75,11 +75,26 @@ Dieser wird beschrieben durch:
 \end{equation}
 \end{minipage}
 
+Mit $U_{FB}=0,6\,\si{\volt}$, $U_a=3,3\,\si{\volt}$ und $R_{104}=100\,\si{\kilo\ohm}$ ergibt sich:
 
-%Kurzfassung von vorherigem Teil, Spannungsteiler Formel
+\begin{minipage}{\textwidth}
+\begin{equation}\label{eq:Spannungsteiler5vb}
+\frac {0,6\,\si{\volt}}{3,3\,\si{\volt}}{=}  \frac{100\,\si{\kilo\ohm}}{10\,\si{\kilo\ohm}+R_{103}+R_{102}} \Rightarrow R_{103}=680\,\si{\kilo\ohm}; R_{102}=47\,\si{\kilo\ohm}
+\end{equation}
+\end{minipage}
+
 
 
 \subsection{Spannungsabschaltung}\label{subsec.Spannungsabschaltung}
+Im Zuge der Überlegungen bezüglich möglicher Energiesparmaßnahmen wurden sowohl das Bluetooth- als auch das GPS-Modul als große Verbraucher ermittelt. Da beide Module auch nicht dauerhaft benötigt werden -- das GPS-Modul nur alle 15 Minuten zur Neuausrichtung des Panels und das Bluetooth-Modul nur nach Bedarf -- ist es sinnvoll, die Betriebsspannungen beider Module schaltbar zu machen. Eine Möglichkeit dafür ist die Verwendung eines p-Kanal-Mosfets, der von einem n-Kanal-Mosfet getrieben wird. Diese Schaltung wird in Abbildung \ref{fig.spgsabschaltung} dargestellt.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{./img/spannungsabschaltung.png}
+  \caption{Spannngsabschaltung Bluetooth-Modul}\label{fig.spgsabschaltung}
+\end{figure}
+
+Bei einem Einschaltsignal über BT\_EN vom Mikrocontroller schaltet der n-Kanal-Mosfet V101 durch; der Spannungsteiler aus $R_{105}$ und $R_{106}$ ist aktiv. 
 %5vgps, 5vbt, Mosfets, Spannungsteiler
 
 \subsection{Messung Strom/Spannung}\label{subsec.MessungStromSpannung}
