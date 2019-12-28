@@ -1,0 +1,20 @@
+\section{3D gedruckte Komponenten}\label{sec:gehaeuse}
+Für das Unterbringen des Mikroporzessors und der Sensoren werden zwei verschiedene Gehäusevarianten verwendet. Dieses Kapitel beschäfftigt sich mit deren Entwurf sowie dem Entwurf der Adaptors, mit welchem die Windfahne und das Anemometer an der Wetterstation befestigt sind.
+
+\subsection{Hauptgehäuse}\label{sec:ge_haupt}
+Das Hauptgehäuse wird in der Stückzahl eins benötigt. In ihm befindet sich der Mikroprozessor mit den zwei aufsteckbaren Platinen sowie den Sensoren. Drei der Sensoren befinden sich nicht im Hauptgehäuse. Dies sind
+\begin{itemize}
+\item der Neigungssensor, welcher an der Unterseite des Solarpanels befestigt werden muss
+\item der GPS-Empfänger, welcher für besseren Empfang am oberen Ende der Wetterstation befestigt wird
+\item das Kompass-Modul, welches empfindlich auf elektro-magnetische Störungen reagiert und aus diesem Grund auch am oberen Ende der Wetterstation untergebracht wird (auf der Seite gegenüber des GPS-Empfängers)
+\end{itemize}
+\subsection{Nebengehäuse}\label{sec:ge_neben}
+Vom Nebengehäuse werden drei Stück benötigt, um die oben genannten Sensoren sicher an der Wetterstaion unterzubringen. Aus Grunden der Einheitlichkeit werden für die drei Sensoren das gleiche Gehäuse verwendet.
+\subsection{Adaptor}\label{sec:ge_adapt}
+Der Adaptor wird in der Stückzahl eins verwendet um eine feste Verbindung zwischem dem Alluminium-Profil der Wetterstaion und dem Mast mit Windfahne und Anemometer herzustellen.
+\subsection{Herstellung}\label{sec:ge_herst}
+Alle Komponenten wurden auf einem \emph{Ender 5} in PLA mit einer Schichtdicke von \SI{0.2}{\milli\meter} gedruckt. Es wurden drei Top-, Buttom- und Wandschichten gedruckt. Da die Komponenten keine großen Kräfte aushalten müssen wurden sie lediglich mit einem Infill von \SI{20}{\percent} gedruckt.
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../termpaper"
+%%% End:
