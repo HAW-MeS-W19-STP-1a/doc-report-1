@@ -1,35 +1,64 @@
-\section{Kompassmodul}
+\section{Sensoren}
+\subsection{Kompassmodul QMC5883L}
 
-Als Kompass dient uns der Sensor XYZ von der Firma ASDF. Verwendet wird er, um die Ausrichtung der Wetterstation zu messen. Diese Information wird benötigt, um das Solarpanel korrekt zur Sonne auszurichten. Die Ausrichtung wird in Kapitel (Referenz zu Kapitel solartracking) genauer beschrieben.
+Als Kompass dient uns der \textbf{QMC5883L}. Verwendet wird er, um die Ausrichtung der Wetterstation gen Norden zu messen. Diese Information wird benötigt, um das Solarpanel korrekt zur Sonne auszurichten zu können. 
 
-Bild Sensor
+Mit einer Genauigkeit von \ang{1} bis \ang{2} ist er für unsere Zwecke ausreichend genau. Ebenfalls für den Sensor sprechen seine geringe Stromaufnahme von 75\,$\mu$A und die Möglichkeit ihn mittels I\textsuperscript{2}C anzusprechen. 
 
-Wichtige Kenndaten blabla
+\subsubsection{C-Code}
 
-Stromaufnahme
+\subsubsection{Montage}
 
-\subsection{C-Code}
+Das Kompassmodul hat 5 Anschlüsse, von denen wir vier verwenden: V\textsubscript{CC}, GND, SDA und SCL. Der fünfte Anschluss wird nur bei einer häufigen Datenübertragung benötigt, er sendet die Information, dass Daten zum Abruf bereit stehen. Dargestellt ist die Verschaltung in Abbildung~\ref{fig:QMC5883L_Plan}.
 
-Der Sensor wird über eine IIC Schnittstellen angesprochen. Er liefert seine Daten folgendermaßen...
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./img/QMC5883L_Plan.png}
+  \caption{Verschaltung des QMC5883L}\label{fig:QMC5883L_Plan}
+\end{figure}
 
-Sleepmode, Forcemode
+Da der Sensor das Magnetfeld misst, muss dieser entfernt von der Windfahne und dem Anemometer platziert werden, da beide mit magnetischen Bauteilen arbeiten. Andernfalls könnte es zu Fehlmessungen kommen. Umgesetzt wurde dies so, dass an der einen Stütze des Solarpanels das Kompassmodul und an der anderen die Windfahne, das Anemometer und das gegenüber magnetischen Beeinflussungen relativ unempfindliche GPS-Modul angebracht wurden. % Verweis auf noch einzufügendes Bild der Montage
 
-\section{GPS}
+%\begin{figure}[H]
+% \centering
+%  \includegraphics[width=\textwidth]{./img/Montage.png}
+%  \caption{Verschaltung des QMC5883L}\label{fig:Montage}
+%\end{figure}
 
-\subsection{C-Code}
+\subsection{GPS}
 
-\section{Anemometer}
+\subsubsection{C-Code}
+
+\subsubsection{Montage}
+
+\subsection{Anemometer}
 
 Viel gut als alte, voll simpel, much wow
 
-\subsection{C-Code}
+\subsubsection{C-Code}
 
-\section{Neigungssensor}
+\subsubsection{Montage}
 
-\subsection{C-Code}
+\subsection{Neigungssensor MPU6050}
 
-\section{Beliebeiger anderer Sensor}
+\subsubsection{C-Code}
 
-\subsection{C-Code}
+\subsubsection{Montage}
 
-\subsection{C-Code}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./img/MPU6050_Plan.png}
+  \caption{Verschaltung des MPU6050}\label{fig:MPU6050_Plan}
+\end{figure}
+
+\subsection{BME280}
+
+\subsubsection{C-Code}
+
+\subsubsection{Montage}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./img/BME280_Plan.png}
+  \caption{Verschaltung des BME280}\label{fig:BME280_Plan}
+\end{figure}
