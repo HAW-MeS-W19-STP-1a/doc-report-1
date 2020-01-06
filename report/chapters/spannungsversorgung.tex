@@ -104,14 +104,13 @@ Bei einem Einschaltsignal über BT\_EN vom Mikrocontroller schaltet der n-Kanal-
 
 Damit schaltet der p-Kanal-Transistor mit $U_{GS,th}=1,6\,V$ sicher durch.
 Die Schaltung für das GPS-Modul wird analog dazu entworfen.
-%5vgps, 5vbt, Mosfets, Spannungsteiler
+
 
 \subsection{Messung Strom/Spannung}\label{subsec.MessungStromSpannung}
-\subsubsection{Strommessung}
-\subsubsection{Ladezustand der Batterie}
+Aus den Anforderungen abgeleitet wird auf der Platine die Messung von Strom und Spannung implementiert. Für die Messung der Stromaufnahme werden zwei Stromsensoren vom Typ ACS172 verwendet. Diese messen den Ladestrom der Batterie und die Stromaufnahme des Boards und geben diese Werte an den Mikrocontroller.
+Die Spannungsmessung wird mit einem einfachen Spannungsteiler umgesetzt, sodass bei $U_{Bat}=12\,\si{\volt}$ 3,3\,V nicht überschritten werden. Mit $R_{109}=270\,\si{\kilo\ohm}$ und $R_{110}=100\,\si{\kilo\ohm}$ ergibt sich eine maximale Spannung von 3,24\,V.
 
-\subsection{Beschaltung Sensoren}\label{subsec.BeschaltungSensoren}
-%Olis Dokument zusammenfassen
+
 
 
 
