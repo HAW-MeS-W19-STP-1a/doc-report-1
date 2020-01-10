@@ -86,10 +86,61 @@ Die Anzeigen (4) (s. Abb.~\ref{fig:ui_graph}) zeigen, wie bereits erwähnt, das 
 \end{figure}
 
 \subsection{Entwicklung}\label{sec:bo_entwicklung}
-In diesem Kapitel werden die, für die Benutzeroberfläche implementierten Funktionen, \emph{nicht} im Detail beschrieben. Es soll lediglich ein Überblick über die Verwendeten Technologien und den Aufbau der Projekts gegeben werden. Bei der Entwicklung wurde versucht der Code in einer Art und Weise zu schreiben, welche es anderen Personen ermöglicht ohne eine ausführliche Beschreibung des gesammten Codes, an diesem weiterzuarbeiten.
+In diesem Kapitel werden die, für die Benutzeroberfläche implementierten Funktionen, \emph{nicht} im Detail beschrieben. Es soll lediglich ein Überblick über die Verwendeten Technologien und den Aufbau der Projekts gegeben werden. Bei der Entwicklung wurde versucht der Code in einer Art und Weise zu schreiben, welche es anderen Personen ermöglicht, ohne eine ausführliche Beschreibung des gesammten Codes, an diesem weiterzuarbeiten.
 
-Als Entwicklungssprache wurde Python 3 verwendet. Der verwendete Quellcode befindet sich im Ordner \textrm{UI}. Die Oberfläche wurde nach dem Model-View-Controller Design-Muster (s. z.B.~\cite{deacon09}) entwickelt. Für einige der Funktionalitäten wurde Code aus den, im PyQt5-Package enthaltenen, Beispielen als Vorlage verwendet. 
+Als Programmiersprache wurde Python 3 verwendet. Der verwendete Quellcode befindet sich im Ordner \textrm{UI}. Die Oberfläche wurde nach dem Model-View-Controller Design-Muster (s. z.B.~\cite{deacon09}) entwickelt. Für einige der Funktionalitäten wurde Code aus den, im PyQt5-Package enthaltenen, Beispielen als Vorlage verwendet.
 
+\subsubsection*{Projektstruktur}
+Das Projekt ist wie folgt strukturiert:
+\dirtree{%
+  .1 UI.
+  .2 .git.
+  .2 controllers.
+  .3 main\_ctrl.py.
+  .2 model.
+  .3 model.py.
+  .2 mywidgets.
+  .3 dateaxis.py.
+  .3 dateaxisitem.py.
+  .3 mplwidget.py.
+  .3 mygraphicswidget.py.
+  .2 resources.
+  .3 main\_view.ui.
+  .3 mvc\_app.qrc.
+  .2 views.
+  .3 main\_view.py.
+  .3 main\_view\_ui.py.
+  .2 .gitignore.txt.
+  .2 build.bat.
+  .2 mvc\_app.py.
+  .2 requirements.txt.  
+}
+
+Die Hauptdatei des Projekts ist \emph{mvc\_app.py}. In ihr werden das Model, der Controller und das View initialisiert und verbunden. Das Model (\emph{model.py}) beinhaltet alle Datenstruckturen, also sowohl die Messwerte als auch Variablen, welche den Programmablauf steuern. Das View (\emph{main\_view.py} und \emph{main\_view\_ui.py}) beinhaltet die Benutzeroberfläche und bestimmt welche Funktionen beim Aktivieren welcher Schaltflächen aufgerufen werden. Diese Funktionen befinden sich im Controller (\emph{main\_ctrl.py}). Im Ordner \emph{mywidgets} befinden sich die im View implementierten benutzerdefinierten graphischen Anzeigen.
+
+Die Verbindung zwischen Model, View und Controller ist über \emph{Signale} und \emph{Slots} realisiert.
+
+Die Datei \emph{requirements.txt} behinhaltet eine Liste aller benötigten Python-Packages. Mit dem Befehl \glqq\textrm{pip install -r requirements.txt}\grqq können diese automatisch installiert werden.
+
+Im Ordner \emph{resources} befinden die mit \emph{PyQt5-Designer} erstellten UI-Dateien.
+
+\subsubsection*{Erstellung der Oberfläche}
+Zum Erstellen der Oberfläche wurde das graphische Tool \emph{PyQt5-Designer} (s. Abb.~\ref{fig:ui_design}) verwendet. Das Übersetzen der mit diesem Tool erstellten \emph{.ui}- und \emph{.qrc}-Dateien in ausführbaren Python-Code erfolgt über das Tool \emph{pyuic5}. Zum automatisieren dieses Prozesses wurde das Skript \emph{build.bat} angelegt. Nach Bearbeitung der Oberfläche im \emph{PyQt5-Designer} sollte dieses ausgeführt werden, um die Änderungen zu übernehmen.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./img/ui_design}
+  \caption{Erstellen der Oberfläche mit PyQt5-Designer.}\label{fig:ui_design}
+\end{figure}
+
+\subsubsection*{Verwendete Python-Packages}
+Es werden die folgenden Python-Packages Programm verwendet:
+\begin{itemize}
+\item PyQt5: Als Framework für die Oberfläche.
+\item serial: Für die serielle Kommunikation, über Bluetooth, mit der Wetterstation.
+\item pandas: Für die Strukturierung der Messdaten.
+\item pyqtgraph: Für die graphische Darstellung der Messdaten.
+\item numpy: Für das Erstellen von Testdaten.
+\end{itemize}
 
 %%% Local Variables:
 %%% mode: latex
