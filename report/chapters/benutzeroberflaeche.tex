@@ -1,12 +1,94 @@
 \section{Benutzeroberfläche}\label{sec:benutzeroberflaeche}
-Um eine leichte Handhabung der Wetterstation zu ermöglichen wird eine, auf dem PyQt5~\cite{pyqt5} Framework basierende, Benutzeroberfläche verwendet.
+Um eine leichte Handhabung der Wetterstation zu ermöglichen wird eine, auf dem PyQt5~\cite{pyqt5} Framework basierende, Benutzeroberfläche verwendet. Für die Kommunikation mit der Wetterstation muss der Computer über eine Bluetooth-Schnittstelle verfügen
 
 In diesem Kapitel wird die zur Verfügung stehenden Funktionen sowie die Entwicklung der Benutzeroberfläche beschrieben.
 
 \subsection{Funktionen}\label{sec:bo_funktionen}
+Die Benutzeroberfläche (s. Abb.~\ref{fig:ui_open}) verfügt über zwei Hauptansichten: eine graphische (s. Abb.~\ref{fig:ui_graph}) und eine tabelarische (s. Abb.~\ref{fig:ui_table}).
+
+Diese unterscheiden sich jeweils nur durch die Anzeigevariante (s. Abb.~\ref{fig:ui_open} und~\ref{fig:ui_table} (1)).
+
+Über das Konsolenfenster (s. Abb.~\ref{fig:ui_graph} (2)) können die im Kapitel (HIER KAPITELLINK EINFÜGEN) beschrieben AT-Befehle an die Wetterstation gesendet werden. Sowohl die gesendeten als auch die empfangenen Daten werden im Konsolenfenster angezeigt. Über die Schaltfläche \emph{Clear} lässt sich der Inhalt des Konsolenfensters löschen. Die Größe des Konsolenfensters und des Anzeigefensters kann beliebig verändert werden.
+
+Das Menü (s. Abb.~\ref{fig:ui_graph} (3)) enthält die zur Bedienung notwendigen Befehle. Es sind nicht alle AT-Befehle implementiert. Die AT-Befehle, welche nicht implementiert sind können manuell über das Konsolenfenster an die Wetterstation gesendet werden. Einige der Menübefehle wurden aufgrund von Zeitmangel nicht implementiert und sind daher ausgegraut. Das Menü enthällt die Folgenden Befehle:
+\begin{itemize}
+\item File
+  \begin{itemize}
+  \item Save (nicht implementiert): Speichert die empfangenen Daten in einer CSV-Datei ab.
+  \item Open (nicht implementiert): Lädt die Daten aus einer CSV-Datei in das Programm.
+  \end{itemize}
+\item Control
+  \begin{itemize}
+  \item Set Time
+    \begin{itemize}
+    \item UTC: Setzt die Uhrzeit und das Datum der Wetterstaion auf die Koordinierte Weltzeit. Die Uhrzeit wird der Computeruhr entnommen.
+    \item Custom (nicht implementiert): Öffnet ein Fenster in welches eine beliebige Uhrzeit und Datum eingegeben werden kann. Diese wird anschließend auf die Wetterstaion gespielt.
+    \end{itemize}
+  \item Set Position
+    \begin{itemize}
+    \item Hamburg: Setzt die Postition der Wetterstation auf (53.556354, 10.022650) (HAW Hamburg).
+    \item Custom (nicht implementiert): Öffnet ein Fenster in welches beliebige Koordination eingegeben werden können. Diese werden anschließend auf die Wetterstation übertragen.
+    \end{itemize}
+  \item Adjust Orientation (nicht implementiert): Gibt der Wetterstation den Befehl sich sofort neu auszurichten.
+  \item Set Update-Interval: Bestimmt das Interval, in welchem eine Verbindung mit der Wetterstaion aufgebaut wird. Nach dem Aufbau der Verbindung werden die neuen Messdaten angefordert, empfangen und dargestellt. Anschließend wird die Verbindung, zwecks Energiespaaren, wieder geschloßen.
+    \begin{itemize}
+    \item 5 sec: fünf Sekunden
+    \item 1 min: eine Minute
+    \item 15 min: fünfzehn Minuten
+    \item 1 h: eine Stunde
+    \item Manuel: Kein Automatisches Anfordern der Messdaten. Zum Anfordern der Messdaten muss die \emph{Update}-Schaltfläche betätigt werden.
+    \end{itemize}
+  \item Set Measuring-Interval: Schickt einen Befehl an die Wetterstation, welcher vorgibt in welchem Interval Messungen durchzuführen sind.
+    \begin{itemize}
+    \item 5 sec: fünf Sekunden
+    \item 15 sec: fünfzehn Sekunden
+    \item 1 min: eine Minute
+    \end{itemize}
+  \end{itemize}
+  \begin{itemize}
+  \item View: Bestimmt das Zeitinterval, welchen in der graphischen Anzeige dargestellt wird.
+    \begin{itemize}
+    \item Last Minute: letzte Minute
+    \item Last 15 Minutes: letzten fünfzehn Minten
+    \item Last Hour: letzte Stunde
+    \item Last Day: letzter Tag
+    \item Last Week: letzte Woche
+    \item Last Month: letzter Monat
+    \item Custom (nicht implementiert): Der dagestellt bereich wird über die Elemente zur Darstellund der Start- und Stopzeit (s. Abb.~\ref{fig:ui_graph} (4)) eingestellt. Der Bereich wird im gegensatz zu den anderen Optionen nicht automatisch mit voranschreiten der Zeit geupdatet.
+    \end{itemize}
+  \end{itemize}
+\item Mode:
+  \begin{itemize}
+  \item Enable Debug: Aktiviert den Debug-Modus. Debugnachrichten werden angezeigt.
+  \item Disable Debug: Deaktiviert den Debug-Modus. Debugnachrichten werden nicht angezeigt.
+  \item Enable Com: Baut manuell eine Bluetooth-Verbindung zur Wetterstation auf. Dies ist notwendig, wenn Befehle zur Wetterstaition gesendet werden sollen. Für das automatische, periodische Einlesen der Messdaten ist dies nicht notwendig. Es gibt momentan keine möglichkeit den für die Verbindung verwendeten Com-Port über die Benutzeroberfläche anzupassen. Stattdessen muss dieser manuell in der Datei \emph{main\_ctrl.py} geändert werden.
+  \item Disbale Com: Schließt die Bluetooth-Verbindung zur Wetterstaion.
+  \end{itemize}
+\end{itemize}
+
+Die Anzeigen (4) (s. Abb.~\ref{fig:ui_graph}) zeigen, wie bereits erwähnt, das Interval an, welches dargestellt wird. Ist dieses Interval nicht auf \emph{Custom} gestellt, so ist die Endzeit immer die aktuelle Zeit. Die Startzeit ergibt entsprechnd des eingestellen Zeitintervalls.
+
+Über die Schaltfächen (5) (s. Abb.~\ref{fig:ui_graph}) können zwei Messkurven aufgewählt werden, welche dargestellt werden sollen. Die Schaltfläche \emph{Update} ist für das manuelle Anfordern der Messdaten notwendig. Unter den Schaltflächen werden die, über das Fadenkreuz (6) (s. Abb.~\ref{fig:ui_graph}) ausgewählten, Messpunkte schriftlich dargestellt.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./img/ui_open}
+  \caption{Benutzeroberfläche nach dem offnen. Dagestellt sind zwei vordefinierte Testkurven, welche nach Empfang des ersten Messwertes gelöscht werden.}\label{fig:ui_open}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./img/ui_simulated_graph}
+  \caption{Benutzeroberfläche: (1) Graphische Darstellung der Messwerte. (2) Konsolenfenster. (3) Kontrollmenü mit den wichtigsten Befehlen. (4) Start- und Endzeit der graphischen Darstellung. (5) Auswahl der dargestellten Messwerte, Schaltfläche zum manuellen Updaten der Messwerte und Anzeige der Messwerte an der aktuellen Fadenkreuzposition. (6) Fadenkreuz zum Anzeigen spezifischer Messwerte.}\label{fig:ui_graph}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{./img/ui_simulated_table}
+  \caption{Benutzeroberfläche: (1) Tabelarische Darstellung von simulierten Werten.}\label{fig:ui_table}
+\end{figure}
 
 \subsection{Entwicklung}\label{sec:bo_entwicklung}
-Als Entwicklungssprache wurde Python 3 verwendet. Der verwendete Quellcode befindet sich im Ordner \textrm{UI}. 
+In diesem Kapitel werden die, für die Benutzeroberfläche implementierten Funktionen, \emph{nicht} im Detail beschrieben. Es soll lediglich ein Überblick über die Verwendeten Technologien und den Aufbau der Projekts gegeben werden. Bei der Entwicklung wurde versucht der Code in einer Art und Weise zu schreiben, welche es anderen Personen ermöglicht ohne eine ausführliche Beschreibung des gesammten Codes, an diesem weiterzuarbeiten.
+
+Als Entwicklungssprache wurde Python 3 verwendet. Der verwendete Quellcode befindet sich im Ordner \textrm{UI}. Die Oberfläche wurde nach dem Model-View-Controller Design-Muster (s. z.B.~\cite{deacon09}) entwickelt. Für einige der Funktionalitäten wurde Code aus den, im PyQt5-Package enthaltenen, Beispielen als Vorlage verwendet. 
 
 
 %%% Local Variables:
