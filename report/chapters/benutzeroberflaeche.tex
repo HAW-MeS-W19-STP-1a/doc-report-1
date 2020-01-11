@@ -69,6 +69,8 @@ Das Menü (s. Abb.~\ref{fig:ui_graph} (3)) enthält die zur Bedienung notwendige
 Die Anzeigen (4) (s. Abb.~\ref{fig:ui_graph}) zeigen, wie bereits erwähnt, das Interval an, welches dargestellt wird. Ist dieses Interval nicht auf \emph{Custom} gestellt, so ist die Endzeit immer die aktuelle Zeit. Die Startzeit ergibt entsprechnd des eingestellen Zeitintervalls.
 
 Über die Schaltfächen (5) (s. Abb.~\ref{fig:ui_graph}) können zwei Messkurven aufgewählt werden, welche dargestellt werden sollen. Die Schaltfläche \emph{Update} ist für das manuelle Anfordern der Messdaten notwendig. Unter den Schaltflächen werden die, über das Fadenkreuz (6) (s. Abb.~\ref{fig:ui_graph}) ausgewählten, Messpunkte schriftlich dargestellt.
+
+Im aktuellen Softwarestand wird die Kommunikation mit der Wetterstation nicht in einem seperaten Task ausgeführt. Dies führt zu Problemen in der Bedienbarkeit der Andwendung. Während das Programm Daten mit der Wetterstation austauscht kann nicht, durch den Nutzer ausgelöste, Ereignisse reagiert werden. Um den Bedienkomfort zu erhöhen sollte die Kommunikation in einen eigenen Task ausgelagert werden. Dies konnte aufgrund der zeitlichen Beschränkung des Projekts nicht realisiert werden.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./img/ui_open}
@@ -136,9 +138,9 @@ Zum Erstellen der Oberfläche wurde das graphische Tool \emph{PyQt5-Designer} (s
 Es werden die folgenden Python-Packages Programm verwendet:
 \begin{itemize}
 \item PyQt5: Als Framework für die Oberfläche.
+\item pyqtgraph: Für die graphische Darstellung der Messdaten.
 \item serial: Für die serielle Kommunikation, über Bluetooth, mit der Wetterstation.
 \item pandas: Für die Strukturierung der Messdaten.
-\item pyqtgraph: Für die graphische Darstellung der Messdaten.
 \item numpy: Für das Erstellen von Testdaten.
 \end{itemize}
 
