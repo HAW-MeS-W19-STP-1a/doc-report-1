@@ -11,8 +11,6 @@ Als Kompass dient uns der \textbf{QMC5883L}. Das Bauteil ist zwar mit \textbf{HM
 
 Verwendet wird er, um die Ausrichtung der Wetterstation gen Norden zu messen (s. Kap.~\ref{sec:ausrichtung des Solarpanels}). Diese Information wird benötigt, um das Solarpanel korrekt zur Sonne auszurichten zu können. 
 
-Genaue Angaben zu etwa Messgenauigkeiten lassen sich nicht treffen. Es wurde aber angenommen, dass der Sensor für eine Ausrichtung Richtung Sonne ausreichend genau arbeitet.
-
 Auf die Software zu dem Kompassmodul wird in Kapitel \ref{ssec:QMC5883L} eingegangen.
 
 \subsubsection{Montage}
@@ -60,8 +58,8 @@ Die Funktion der Windfahne basiert darauf, dass 8 Schalter, jeweils mit einem an
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{./img/Wind_Plan.png}
-  \caption{Aufbau der Windfahne und Anschluss an das Board}\label{fig:Wind_Plan}
+  \includegraphics[width=0.5\textwidth]{./img/Wind_Plan.png}
+  \caption{Aufbau der Windfahne und Anschluss an das Board\cite{ds_wind}}\label{fig:Wind_Plan}
 \end{figure}
 
 Für einen Spannungsteiler mit einem externen Widerstand von \SI{10}{\kilo\ohm} ergeben sich die Werte aus Abbildung~\ref{fig:Wind_Werte}.
@@ -82,8 +80,12 @@ Die Anschlüsse wurden wie in Abbildung~\ref{fig:Wind_Plan} vorgenommen. Das mit
 
 \subsection{Neigungssensor MPU6050}
 % Zweck, Bestimmung Neigung des Panels, Feedback für Motor
+Der Neigungssensor soll genutzt werden, um die Neigung des Solarpanels überprüfen zu können und so eine optimale Ausrichtung zu ermöglichen. Bei dem verwendeten Sensor handelt es sich um einen 6-Achsen Bewegungssensor, der ein 3-Achsen Gyroskop mit einem 3-Achsen Beschleunigungssensor verbindet. Er kann mittels I\textsuperscript{2}C-Schnittstelle angesprochen werden. \cite{ds_mpu6050}
+
+Auf die Software wird in Kapitel~\ref{ssec:MPU6050} eingegangen.
 
 \subsubsection{Montage}
+In Abbildung~\ref{fig:MPU6050_Plan} sieht man, wie der Sensor verbunden ist. Er wurde wie das GPS-Modul und der Kompass auf eine Lochrasterplatine gesteckt und dann in einem der drei Nebengehäuse untergebracht. Anschließend wurde das Gehäuse mittels beidseitigem Klebeband hinten am Solarpanel angebracht (s. Abb.~\ref{fig:Montage_Kompass_Wind}).
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.6\textwidth]{./img/MPU6050_Plan.png}
@@ -92,9 +94,13 @@ Die Anschlüsse wurden wie in Abbildung~\ref{fig:Wind_Plan} vorgenommen. Das mit
 
 \subsection{BME280}
 % Zweck, Genauigkeit, Arbeitsbereich
+Der \textbf{BME280} ist ein Sensor, der Luftfeuchtigkeit, Luftdruck und Temperatur aufnehmen kann. Hergestellt wird er von der Firma \textbf{BOSCH}. Angesteuert wird er über die I\textsuperscript{2}C-Schnittstelle. Die Luftfeuchtigkeit wird mit einer Genauigkeit von $\pm3\%$ bestimmt. Je nach Umgebungstemperatur kann der Luftdruck mit einer Genauigkeit von $\pm1$ bis $\pm1.7$~hPa genau bestimmt werden. Die Genauigkeit der Temperatur geht von minimal $\pm$\SI{0.5}{\celsius} bis $\pm$\SI{1.5}{\celsius}. Zudem bietet der Sensor die Möglichkeit, ihn in mehreren Betriebsmodi zu betreiben. So kann er etwa für längere Zeit im Sleepmodus gehalten werden und wird erst zur Messwertabfrage geweckt, was den Stromverbrauch reduziert.\cite{ds_bme280}
+
+Die Software zu dem Sensor wird in Kapitel~\ref{ssec:BME280} genauer erläutert.
 
 \subsubsection{Montage}
 % Wo ist der? Im Gehäuse? Bild!
+Der Sensor wurde direkt auf dem Board angebracht. Da das Hauptgehäuse (s. Kap.~\ref{sec:ge_haupt}) offen ist, wird die Umgebungsluft ungehindert an den Sensor gelangen. Die Anschlüsse können aus Abbildung~\ref{fig:BME280_Plan} entnommen werden.
 
 \begin{figure}[H]
   \centering
@@ -104,9 +110,12 @@ Die Anschlüsse wurden wie in Abbildung~\ref{fig:Wind_Plan} vorgenommen. Das mit
 
 \subsection{Anschlagssensor}
 % Zweck, Positionierung Panel, noch von Vorgängern, Schutz Motor und Teile. Funktion
+Um den Motor, der für die Rotation des Solarpanels zuständig ist, vor Schäden durch Überdrehen zu schützen, wurden die von unseren Vorgängern am Aufbau befestigten Anschlagssensoren genutzt. Diese beiden Sensoren sitzen nahe der Rotationsachse des Panels Rauf der Rückseite des Aufbaus. Bei Drehen des Solarpanels auf Anschlag kontaktiert einer der Sensoren und gibt ein Signal an den Mikrocontroller weiter. Software-seitig wird nun der Motor ausgeschaltet und dient zunächst als Notaus.
+
+Des Weiteren können die Anschlagssensoren zur Kalibrierung der Stellung des Solarpanels verwendet werden.
 
 \subsubsection{Montage}
 % an Achse des Panels
 
 % Verkabelung erklären
-
+Wie schon erwähnt sind die beiden Sensoren achsennah montiert. Angeschlossen sind die beiden Sensoren mit drei Kabeln: GND, einer Versorgungsspannung und einer Signalleitung.
