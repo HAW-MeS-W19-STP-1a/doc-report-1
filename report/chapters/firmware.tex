@@ -13,7 +13,7 @@
         \item ST Microelectronics, 8-bit STM8: STM8L152R8 (NUCLEO-8L152R8)
     \end{itemize}
     
-    Für die Auswahl wurde neben den Hardwarespezifikationen auch die Qualität der Software-Werkzeuge und der Entwicklungskomfort in Anbetracht gezogen. Die Ergebnisse sind nachfolgend in der Entscheidungsmatrix (s. Tab.~\ref{tab:mcu_auswahl_hardware} und~\ref{tab:mcu_auswahl_ide}) aufgezeichnet.
+    Für die Auswahl wurde neben den Hardwarespezifikationen auch die Qualität der Software-Werkzeuge und der Entwicklungskomfort in Betracht gezogen. Die Ergebnisse sind nachfolgend in der Entscheidungsmatrix (s. Tab.~\ref{tab:mcu_auswahl_hardware} und~\ref{tab:mcu_auswahl_ide}) aufgezeichnet.
     
     \begin{table}[H]
         \centering
@@ -88,7 +88,7 @@
     \end{table}    
 
 \section{Firmware}\label{cha:C-Code}
-    Die ntwickelte Mikrocontroller-Firmware definiert den Funktionsumfang der Wetterstation: neben der Auswertung und Aufzeichnung von Messdaten erfolgt die Ausrichtung des Solarpanels softwaregesteuert.
+    Die entwickelte Mikrocontroller-Firmware definiert den Funktionsumfang der Wetterstation: neben der Auswertung und Aufzeichnung von Messdaten erfolgt die Ausrichtung des Solarpanels softwaregesteuert.
     
     Das Softwareprojekt ist dabei modular aufgebaut -- voneinander unabhängige Softwarekomponenten sind in eigene Module aufgeteilt. Funktionen zur Umrechnung der rohen Sensordaten in die gewünschten Darstellungen werden durch entsprechende Unterteilung in verschiedene Headerdateien vor anderen Teilen der Software ``versteckt''.
     
@@ -104,7 +104,7 @@
         \item \texttt{userlib/} -- Module zur Steuerung des Systems auf einer höheren Abstraktionsebene
     \end{itemize}
 
-    Die Software wurde dabei für eine interruptgesteuerte Verarbeitung ausgelegt. Der Mikrocontroller wird durch Timer-Interrupts in regelmäßigen Zeitabständen ``aufgeweckt'', um Steuerungsaufgaben auszuführen. Nach Abschluss der Ausführung wird er wieder in den Wartezustand ``wait-for-interrupt'' versetzt, um die Stromaufnahme während die Leerlaufzeit zu verringern.
+    Die Software wurde dabei für eine interruptgesteuerte Verarbeitung ausgelegt. Der Mikrocontroller wird durch Timer-Interrupts in regelmäßigen Zeitabständen ``aufgeweckt'', um Steuerungsaufgaben auszuführen. Nach Abschluss der Ausführung wird er wieder in den Wartezustand ``wait-for-interrupt'' versetzt, um die Stromaufnahme während der Leerlaufzeit zu verringern.
     
     Nachfolgend wird auf einige der oben gelisteten Module näher eingegangen.
     
