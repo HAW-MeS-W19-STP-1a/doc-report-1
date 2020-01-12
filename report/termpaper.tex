@@ -12,11 +12,28 @@
 
 %\usepackage{layout}       % Layout Debugging
 %\usepackage{showframe}    % Layout Debugging
-\usepackage{lipsum}       % for example only
-\usepackage{blindtext}    % for example only
 \usepackage{float}
 \usepackage{dirtree}
-
+\usepackage{listings}
+\lstset{literate=%
+  {Ö}{{\"O}}1
+  {Ä}{{\"A}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {ä}{{\"a}}1
+  {ö}{{\"o}}1
+  {~}{{\textasciitilde}}1
+  {°}{{\textsuperscript{$\circ$}}}1
+}
+\lstset{
+  basicstyle=\ttfamily\scriptsize\color{black},
+  frame=single, % adds a frame around the code
+  tabsize=2, % sets default tabsize to 2 spaces
+  captionpos=b, % sets the caption-position to bottom
+  breaklines=true, % sets automatic line breaking
+  breakatwhitespace=false,
+}
 
 \begin{document}
 \input{configuration/configuration}    % load all settings
