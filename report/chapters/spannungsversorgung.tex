@@ -26,7 +26,13 @@ In Abbildung \ref{fig.powerboard} wird das finale Layout des Power-Boards gezeig
 \end{figure}
 
 Wesentliche Komponenten des Power-Boards sind die Erzeugung der 3V3 und 5V Spannungen. Die 5\,V werden von einem Mornsun Festspannungsregler mit einer V\_IN Range von 6,5 bis 30\,V.
-Die 3V3 werden direkt vom Mikrokontroller, der mit 5\,V versorgt wird, erzeugt. Spannungsteiler
+Die 3V3 werden direkt vom Mikrokontroller, der mit 5\,V versorgt wird, erzeugt. Über zwei Spannungsteiler wird die Batterie- bzw. Solarpanelspannung gemessen (s. Abb. \ref{fig.spannungsteiler}):
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{./img/spannungsteiler.png}
+  \caption{Spannungsteiler}\label{fig.spannungsteiler}
+\end{figure}
 
 Im Zuge der Überlegungen bezüglich möglicher Energiesparmaßnahmen wurden sowohl das Bluetooth- als auch das GPS-Modul als große Verbraucher ermittelt. Da beide Module auch nicht dauerhaft benötigt werden -- das GPS-Modul nur alle 15 Minuten zur Neuausrichtung des Panels und das Bluetooth-Modul nur nach Bedarf -- ist es sinnvoll, die Betriebsspannungen beider Module schaltbar zu machen. Eine Möglichkeit dafür ist die Verwendung eines p-Kanal-Mosfets, der von einem n-Kanal-Mosfet getrieben wird. Diese Schaltung wird in Abbildung \ref{fig.spannungsabschaltung} dargestellt.
 
