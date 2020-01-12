@@ -1049,6 +1049,16 @@ typedef struct tag_Power_Sensor {
             \end{tabular}
         \end{table}
     
+        \subsubsection{Energiesparmaßnahmen}
+        Das Bluetooth-Modul hat im Sendebetrieb einen hohen Energieverbrauch (etwa $500\,\mathrm{mW}$). Es wird daher nach einer längeren Zeit ohne aktive Verbindung über einen Leistungs-MOSFET abgeschaltet.
+        
+        Damit dennoch ohne physikalischen Zugriff eine Verbindung mit der Wetterstation aufgebaut werden kann, wird das Bluetooth-Modul in regelmäßigen Zeitabständen für etwa $30\,\mathrm{s}$ im ``Advertise''-Modus eingeschaltet. In dieser Zeit ist das Modul für andere Bluetooth-Endgeräte in der Umgebung als ``\texttt{Wetterstation\_1a}'' sichtbar.
+        
+        Alternativ kann das Bluetooth-Modul durch Drücken des blauen Tasters an der Hauptplatine für länger als $1\,\mathrm{s}$ manuell aktiviert werden.
+           
+        \subsubsection{Pairing-Daten}
+        Bei der erstmaligen Verbindung eines PCs mit der Wetterstation muss zunächst ein \emph{Pairing} zwischen dem Bluetooth-Modul und dem Rechner erfolgen. Hierbei muss am PC ein vierstelliger Pin-Code eingegeben werden, um die Verbindung zu aktivieren: \textbf{\texttt{1234}}
+    
     \subsection{Messdatenprotokoll auf einer SD-Karte}\label{ssec:SD_Card}
         Die Messdaten werden bei jeder Aufzeichnung zusätzlich auf der SD-Karte in der Textdatei ``\texttt{LOG.TXT}'' im CSV-Format abgespeichert. Jede Zeile ist dabei nach folgendem Schema zusammengestellt:
         \begin{center}
@@ -1056,3 +1066,64 @@ typedef struct tag_Power_Sensor {
         \end{center}
     
         Die Formatierung der einzelnen Felder ist identisch zur Ausgabe des AT-Befehls ``\texttt{AT+CGUI}'', welche zuvor auf Seite~\pageref{tab:at_cgui} dokumentiert wurde.
+        
+    \subsection{Motorsteuerung}
+        Die Motorsteuerung nutzt einen schnellen Timer-Interrupt mit einer Periode von $100\,\mathrm{ms}$ zur Regelung der Panelausrichtung. Die Fahrt erfolgt dabei zeitgesteuert, und wird nach Erreichen der Sollposition mithilfe des Magnetometers QMC5883L für Abweichungen kompensiert.
+        
+        Bei gleichzeitigen Sollwertänderungen für Panel- und Turmausrichtung wird zuerst das Panel verfahren. Der Turm wird erst nach Erreichen der Sollposition für die Panel-Achse verfahren, um übermäßig hohe Stromspitzen zu vermeiden.
+        
+        \subsubsection{Referenzfahrt für die Panelausrichtung}
+        Nach der Initialisierung führt die Motorsteuerung eine Referenzfahrt auf der Panel-Achse aus, um einen Referenzwert für die Ausrichtung des Solarpanels entlang der Querachse zu erhalten. Das Panel wird dazu so lange nach unten gefahren, bis der Endlagenschalter auslöst.
+        
+        \subsubsection{Sicherheitsfunktion}
+        Die Sicherheitsfunktion kann über den ``\texttt{ST}''-Schaltereingang ausgelöst werden. Hierdurch werden alle Treibersignale ausgeschaltet und die Motorsteuerung gegen Wiedereinschalten gesperrt. Dieser Zustand kann nur durch einen Neustart des Systems zurückgesetzt werden.
+               
+    \subsection{Statusanzeige über LEDs}
+        Die Wetterstation verfügt über drei verschiedenfarbige Leuchtdioden, welche am Gehäuse der Hauptplatine montiert sind. Hierüber werden einige wichtige Systemzustände angezeigt. Die Bedeutung der Blink-Pattern wird nachfolgend kurz beschrieben. Die Pattern werden alle $1.5\,\mathrm{s}$ wiederholt.
+        
+        \subsubsection{Grüne LED: Systemstatus}
+        Die grüne LED zeigt den Systemzustand der Wetterstation an. 
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{|l|l|}
+                \hline
+                \textbf{Blink-Pattern}  & \textbf{Zustand}  \\
+                \hline
+                1x kurzes Blinken       & Energiesparmodus aktiv \\
+                2x kurzes, 1x langes Blinken & Wakeup-Task wurde ausgeführt\\
+                Blinken ohne Pause      & Fehler beim Systemstart\\
+                \hline
+            \end{tabular}
+        \end{table}
+        
+        \subsubsection{Blaue LED: Bluetooth}
+        Der Aktivierungszustand des Bluetooth-Moduls wird über die blaue LED signalisiert.
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{|l|l|}
+                \hline
+                \textbf{Blink-Pattern}  & \textbf{Zustand}  \\
+                \hline
+                ausgeschaltet           & Modul ausgeschaltet. \\
+                2x kurzes Blinken       & ``Advertise''-Modus. Nicht verbunden.\\
+                dauerhaft ein           & Verbindung aktiv. \\
+                \hline
+            \end{tabular}
+        \end{table}
+        
+        \subsubsection{Gelbe LED: Motorsteuerung}
+        Die gelbe LED zeigt den aktuellen Zustand der Motorsteuerung an.
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{|l|l|}
+                \hline
+                \textbf{Blink-Pattern}  & \textbf{Zustand}  \\
+                \hline
+                ausgeschaltet           & Motorsteuerung deaktiviert. \\
+                1x kurzes, 1x langes Blinken & Referenzfahrt angefordert.\\
+                2x kurzes Blinken       & Referenzfahrt beendet.\\
+                1x kurzes Blinken       & Motorsteuerung aktiv.\\
+                Blinken ohne Pause      & Sicherheitsfunktion ausgelöst.\\
+                \hline
+            \end{tabular}
+        \end{table}
