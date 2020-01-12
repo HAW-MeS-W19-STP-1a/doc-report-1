@@ -8,15 +8,17 @@
 
 \subsection{Kompassmodul QMC5883L}
 
-Als Kompass dient uns der \textbf{QMC5883L}. Verwendet wird er, um die Ausrichtung der Wetterstation gen Norden zu messen. Diese Information wird benötigt, um das Solarpanel korrekt zur Sonne auszurichten zu können. 
+Als Kompass dient uns der \textbf{QMC5883L}. Das Bauteil ist zwar mit \textbf{HMC5883L} beschriftet, verbaut ist aber ein \textbf{QMC5883L}. Überprüfen lässt sich dies über ein Auslesen der Registeradresse, welche den Wert \textit{0x0D} statt wie erwartet \textit{0x3D/0x3C} zurückgibt.
 
-% Mehr blabla aus Datenblatt, 3 Achsen etc pp. Ding soll ja verkauft werden
+Verwendet wird er, um die Ausrichtung der Wetterstation gen Norden zu messen (s. Kap.~\ref{sec:ausrichtung des Solarpanels}). Diese Information wird benötigt, um das Solarpanel korrekt zur Sonne auszurichten zu können. 
 
-Mit einer Genauigkeit von \ang{1} bis \ang{2} ist er für unsere Zwecke ausreichend genau. Ebenfalls für den Sensor sprechen seine geringe Stromaufnahme von 75\,$\mu$A und die Möglichkeit ihn mittels I\textsuperscript{2}C anzusprechen. 
+Genaue Angaben zu etwa Messgenauigkeiten lassen sich nicht treffen. Es wurde aber angenommen, dass der Sensor für eine Ausrichtung Richtung Sonne ausreichend genau arbeitet.
+
+Auf die Software zu dem Kompassmodul wird in Kapitel \ref{ssec:QMC5883L} eingegangen.
 
 \subsubsection{Montage}
 
-Das Kompassmodul hat 5 Anschlüsse, von denen wir vier verwenden: V\textsubscript{CC}, GND, SDA und SCL. Der fünfte Anschluss wird nur bei einer häufigen Datenübertragung benötigt, er sendet die Information, dass Daten zum Abruf bereit stehen. Dargestellt ist die Verschaltung in Abbildung~\ref{fig:QMC5883L_Plan}.
+Das Kompassmodul hat 5 Anschlüsse, von denen vier verwendet werden: V\textsubscript{CC}, GND, SDA und SCL. Der fünfte Anschluss wird nur bei einer häufigen Datenübertragung benötigt. Er sendet die Information, dass Daten zum Abruf bereit stehen. Dargestellt ist die Verschaltung in Abbildung~\ref{fig:QMC5883L_Plan}.
 
 \begin{figure}[H]
   \centering
@@ -24,17 +26,17 @@ Das Kompassmodul hat 5 Anschlüsse, von denen wir vier verwenden: V\textsubscrip
   \caption{Verschaltung des QMC5883L}\label{fig:QMC5883L_Plan}
 \end{figure}
 
-Da der Sensor das Magnetfeld misst, muss dieser entfernt von der Windfahne und dem Anemometer platziert werden, da beide mit magnetischen Bauteilen arbeiten. Andernfalls könnte es zu Fehlmessungen kommen. Umgesetzt wurde dies so, dass an der einen Stütze des Solarpanels das Kompassmodul und an der anderen die Windfahne, das Anemometer und das gegenüber magnetischen Beeinflussungen relativ unempfindliche GPS-Modul angebracht wurden.
+Um den Sensor fest zu verbauen, aber gleichzeitig ein Austauschen möglich zu machen, wurde eine Lochrasterplatine zugeschnitten und dann mit entsprechenden Steckverbindungen (\textit{male} für das Kabel, \textit{female} für den Sensor) ausgestattet. Anschließend wurde diese in einem Deckel der Nebengehäuse (s. Kap.~\ref{sec:ge_neben}) eingeklebt. Als letzten Schritt musste nur noch ein Kabel mit 4 Adern gefertigt werden, um die Lochrasterplatine mit dem Board zu verbinden.
 
-% Verweis auf noch einzufügendes Bild der Montage
+Da der Sensor das Magnetfeld misst, muss dieser zudem entfernt von der Windfahne und dem Anemometer platziert werden, da beide mit magnetischen Bauteilen arbeiten. Andernfalls könnte es zu Fehlmessungen kommen. Umgesetzt wurde dies so, dass an der einen Stütze des Solarpanels das Kompassmodul und an der anderen die Windfahne, das Anemometer und das gegenüber magnetischen Beeinflussungen relativ unempfindliche GPS-Modul angebracht wurden (s. Abb.~\ref{fig:Montage_Kompass_Wind}).
 
-%\begin{figure}[H]
-% \centering
-%  \includegraphics[width=\textwidth]{./img/Montage.png}
-%  \caption{Verschaltung des QMC5883L}\label{fig:Montage}
-%\end{figure}
+\begin{figure}[H]
+ \centering
+  \includegraphics[width=0.8\textwidth]{./img/Montage_Kompass_Wind.JPG}
+  \caption{Platzierung des Kompassmoduls auf der linken Stütze und Windfahne, Anemometer und GPS-Modul auf der rechten Stütze. An der Rückseite des Solarpanels befindet sich der Neigungssensor.}\label{fig:Montage_Kompass_Wind}
+\end{figure}
 
-\subsection{GPS} % richtiges Datenblatt finden und Werte einsetzen56tr
+\subsection{GPS} % richtiges Datenblatt finden und Werte einsetzen
 
 Um den Standort des Geräts zu bestimmen und auch um die Berechnung der korrekten Auslenkung des Solarpanels auf Grund des Standorts zu ermöglichen, musste ein GPS-Modul genutzt werden. Wir haben uns für den % Gerätetyp entschieden. Er ermöglicht eine Bestimmung der aktuellen Position um XX m in der Horizontalen und um XX in der Höhe.
 
