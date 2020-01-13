@@ -1,6 +1,6 @@
 \pagebreak
 \section{Benutzeroberfläche}\label{sec:benutzeroberflaeche}
-Um eine leichte Handhabung der Wetterstation zu ermöglichen wird eine, auf dem PyQt5~\cite{pyqt5} Framework basierende, Benutzeroberfläche verwendet. Für die Kommunikation mit der Wetterstation muss der Computer über eine Bluetooth-Schnittstelle verfügen
+Um eine leichte Handhabung der Wetterstation zu ermöglichen wird eine, auf dem PyQt5~\cite{pyqt5} Framework basierende, Benutzeroberfläche verwendet. Für die Kommunikation mit der Wetterstation muss der Computer über eine Bluetooth-Schnittstelle verfügen.
 
 In diesem Kapitel werden die zur Verfügung stehenden Funktionen sowie die Entwicklung der Benutzeroberfläche beschrieben.
 
@@ -27,7 +27,7 @@ Das Menü (s. Abb.~\ref{fig:ui_graph} (3)) enthält die zur Bedienung notwendige
     \end{itemize}
   \item Set Position
     \begin{itemize}
-    \item Hamburg: Setzt die Postition der Wetterstation auf (53.556354, 10.022650) (HAW Hamburg).
+    \item Hamburg: Setzt die Postition der Wetterstation auf (\SI{53.556354}{\degree}, \SI{10.022650}{\degree}) (HAW Hamburg).
     \item Custom (nicht implementiert): Öffnet ein Fenster in welches beliebige Koordinaten eingegeben werden können. Diese werden anschließend auf die Wetterstation übertragen.
     \end{itemize}
   \item Adjust Orientation (nicht implementiert): Gibt der Wetterstation den Befehl sich sofort neu auszurichten.
@@ -47,7 +47,7 @@ Das Menü (s. Abb.~\ref{fig:ui_graph} (3)) enthält die zur Bedienung notwendige
     \end{itemize}
   \end{itemize}
   \begin{itemize}
-  \item View: Bestimmt das Zeitintervall, welchem in der graphischen Anzeige dargestellt wird.
+  \item View: Bestimmt das Zeitintervall, welches in der graphischen Anzeige dargestellt wird.
     \begin{itemize}
     \item Last Minute: letzte Minute
     \item Last 15 Minutes: letzten fünfzehn Minten
@@ -71,7 +71,7 @@ Die Anzeigen (4) (s. Abb.~\ref{fig:ui_graph}) zeigen, wie bereits erwähnt, das 
 
 Über die Schaltfächen (5) (s. Abb.~\ref{fig:ui_graph}) können zwei Messkurven aufgewählt werden, welche dargestellt werden sollen. Die Schaltfläche \emph{Update} ist für das manuelle Anfordern der Messdaten notwendig. Unter den Schaltflächen werden die, über das Fadenkreuz (6) (s. Abb.~\ref{fig:ui_graph}) ausgewählten, Messpunkte schriftlich dargestellt.
 
-Im aktuellen Softwarestand wird die Kommunikation mit der Wetterstation nicht in einem seperaten Task ausgeführt. Dies führt zu Problemen in der Bedienbarkeit der Andwendung. Während das Programm Daten mit der Wetterstation austauscht kann nicht, durch den Nutzer ausgelöste, Ereignisse reagiert werden. Um den Bedienkomfort zu erhöhen sollte die Kommunikation in einen eigenen Task ausgelagert werden. Dies konnte aufgrund der zeitlichen Beschränkung des Projekts nicht realisiert werden.
+Im aktuellen Softwarestand wird die Kommunikation mit der Wetterstation nicht in einem seperaten Task ausgeführt. Dies führt zu Problemen in der Bedienbarkeit der Andwendung. Während das Programm Daten mit der Wetterstation austauscht kann nicht auf, durch den Nutzer ausgelöste, Ereignisse reagiert werden. Um den Bedienkomfort zu erhöhen sollte die Kommunikation in einen eigenen Task ausgelagert werden. Dies konnte aufgrund der zeitlichen Beschränkung des Projekts nicht realisiert werden.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{./img/ui_open}
@@ -89,13 +89,14 @@ Im aktuellen Softwarestand wird die Kommunikation mit der Wetterstation nicht in
 \end{figure}
 
 \subsection{Entwicklung}\label{sec:bo_entwicklung}
-In diesem Kapitel werden die, für die Benutzeroberfläche implementierten Funktionen, \emph{nicht} im Detail beschrieben. Es soll lediglich ein Überblick über die verwendeten Technologien und den Aufbau der Projekts gegeben werden. Bei der Entwicklung wurde versucht den Code in einer Art und Weise zu schreiben, welcher es anderen Personen ermöglicht, ohne eine ausführliche Beschreibung des gesamten Codes, an diesem weiterzuarbeiten.
+In diesem Kapitel wird ein Überblick über die verwendeten Technologien und den Aufbau der Projekts gegeben werden. Bei der Entwicklung wurde versucht den Code in einer Art und Weise zu schreiben, welcher es anderen Personen ermöglicht, ohne eine ausführliche Beschreibung des gesamten Codes, an diesem weiterzuarbeiten.
 
 Als Programmiersprache wurde Python 3 verwendet. Der verwendete Quellcode befindet sich im Ordner \textrm{UI}. Die Oberfläche wurde nach dem Model-View-Controller Entwurfsmuster (s. z.B.~\cite{deacon09}, s. Abb.~\ref{fig:ui_mvc}) entwickelt. Für einige der Funktionalitäten wurde Code aus den, im PyQt5-Package enthaltenen, Beispielen als Vorlage verwendet.
   \begin{figure}[H]
     \centering \includegraphics[width=\textwidth]{./img/MVC.png}
   \caption{Model-View-Controller Entwurfsmuster, symbolische Darstellung}\label{fig:ui_mvc}    
-  \end{figure}
+\end{figure}
+\newpage
 \subsubsection*{Projektstruktur}
 Das Projekt ist wie folgt strukturiert:
 \dirtree{%
